@@ -1,30 +1,34 @@
-import React, {useState} from 'react';
+
 import './App.css';
-import firebase from './firebase';
+import React, { useEffect,useState } from 'react';
+import Login from './Login';
+import Todo from './Todo';
+import Duration1 from './Duration';
 
+function App() { 
+  const [session, setSession] = useState({
+    isLoggedIn: false,
+    cerrentUser: null,
+    errorMessage: null,
+  });
+ return (
+  <div  >
+  <div>
+    {session.isLoggedIn ? (
+        <header >          
+        </header>) :
+        (<Login setSession={setSession} />)
 
-function App() { const [title, setTitle]  = useState('');
- const handleOnChange = (e)=>{
-   setTitle(e.target.value);
- }
- const creatTodo = ()=>{
-   const todoRef =firebase.database().ref("Todo");
-   const todo = {
-     title ,
-     complete:false,
-   };
-   todoRef.push(todo);
-
- }
-  return (
-    <div className="App" >
-     <h1>Todo</h1>
-     <input type ="text" onChange ={handleOnChange}  value = {title}/>
-        <button onClick={creatTodo}>Add todo</button>
-     
+      }</div>
+      <div>
+        <Todo/>
+      </div>
+   
     </div>
   );
-}
+};
+  
+
 
 export default App;
 

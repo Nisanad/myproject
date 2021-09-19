@@ -1,5 +1,8 @@
+
 .App {
+
   text-align: center;
+
 }
 
 .App-logo {
@@ -35,4 +38,106 @@
   to {
     transform: rotate(360deg);
   }
+}
+.Box {
+  background-color: #ffffff;
+  width: 600px;
+  border: 1px solid black;
+  padding: 100px;
+  margin:  20px 50px 400px 100px;
+ 
+}
+.button{
+  background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
+  width: 100px;
+  height: 30px;
+  border-radius:10px;
+  font-size: calc(5px + 1.5vmin);
+  float: left;
+  border: 1px solid rgb(249, 250, 249)
+ }
+.holder{
+  width: 10cm;
+  height: 30px;
+
+}
+.pleaseinputtext{
+  font-size: calc(5px + 1.3vmin);
+  font-weight: bold;
+}
+.button:hover {
+  background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+  color: white;
+}
+.AppBG{
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+.DBox1 {
+  background-color: #ffffff;
+  width: 10px;
+  border: 1px solid black;
+  padding: 100px;
+  margin: 200px;
+ 
+}
+.h1 {
+   
+  font-size: calc(10px + 3.0vmin);
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+.buttonD1{
+  border: 0px;
+  width: 100px;
+  height: 100px;
+  background: rgb(177, 214, 245);
+  border: 2px;
+  border-radius: 15px
+}
+.dura{
+margin: 50px 50px 75px 500px;
+}
+
+.topbox{
+   
+    background-color: #90c3ec;
+    width: 2000px;
+    height: 100px;
+    border: 0px ;
+    margin: 0px;
+    border: 2px;
+    border-radius: 10px
+   
+  }
+  .psulogo{
+   padding: 10px;
+   margin: 20px 0px 0px 0px;
+
+  }
+  .h2header{
+    display: flex;
+   
+    height: 50;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Boxtodo {
+  background-color: #ffffff;
+  width: 500px;
+  border: 1px solid black;
+  padding: 50px;
+  margin:  50px 50px 100px 80px;
+ 
+}
+.psulogo2{
+  padding: 10px;
+  margin: 20px 0px 0px 1450px;
 }
