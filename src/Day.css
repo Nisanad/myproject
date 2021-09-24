@@ -12,7 +12,7 @@
 }
 .dheader{
     display: flex;
-    border-bottom: 1px solid gray;
+    border-bottom: 0px solid gray;
     height: 50;
     justify-content: center;
     align-items: center;

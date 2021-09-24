@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import Todo from './Todo'
 import Day1d1 from './Day1d1';
 import Duration1 from './Duration';
+import Dropdown from './Dropdown';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <Dropdown/>
   </React.StrictMode>,
   document.getElementById('root')
 );
