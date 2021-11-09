@@ -2,10 +2,12 @@
 import './App.css';
 import React, { useEffect,useState } from 'react';
 import Login from './Login';
-import Todo from './Todo';
+import Student from './Student';
 import Duration1 from './Duration';
+import Home from './Home';
 
 function App() { 
+  //const refreshPage = () => window.location.reload(false);
   const [session, setSession] = useState({
     isLoggedIn: false,
     cerrentUser: null,
@@ -21,7 +23,7 @@ function App() {
 
       }</div>
       <div>
-        <Todo/>
+        <Home/>
       </div>
    
     </div>

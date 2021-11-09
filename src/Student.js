@@ -5,19 +5,19 @@ import firebase from './firebase';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 
-function Todo() { 
+function Student() { 
   const [title, setTitle]  = useState('');
  const handleOnChange = (e)=>{
    setTitle(e.target.value);
  }
  const creatTodo = ()=>{
-   const todoRef =firebase.database().ref("Student");
-   const todo = {
+   const studentRef =firebase.database().ref("Student");
+   const Student = {
      title ,
      complete:true, 
      
    };
-   todoRef.push(todo);
+   studentRef.push(Student);
 
    
  }
@@ -25,8 +25,7 @@ function Todo() {
 
   return (
   <div>
-<div className ="topbox"  ><img src="psu-logo.png" width="100px" className="psulogo2"  ></img></div>
-<img src="estudent.jpg" width="150px"  ></img>
+
     <div><center>
        <div className="Boxtodo" >  
       <h1>Student ID</h1><br></br><br></br>
@@ -43,11 +42,7 @@ function Todo() {
 
     </center>
      
-      <div>
-        <center><button type="button" class="btn btn-info" >ถัดไป</button></center>
-
-      
-      </div>
+    
     </div>    
     </div>
    
@@ -55,4 +50,4 @@ function Todo() {
   );
 }
 
-export default Todo;
+export default Student;

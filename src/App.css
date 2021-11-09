@@ -101,7 +101,7 @@
   border-radius: 15px
 }
 .dura{
-margin: 50px 50px 75px 500px;
+margin: 0px 550px 150px 600px;
 }
 
 .topbox{
@@ -122,7 +122,7 @@ margin: 50px 50px 75px 500px;
   }
   .h2header{
     display: flex;
-   
+    margin: 100px 550px 150px 600px;
     height: 50;
     justify-content: center;
     align-items: center;
@@ -134,7 +134,7 @@ margin: 50px 50px 75px 500px;
   width: 500px;
   border: 1px solid black;
   padding: 50px;
-  margin:  50px 50px 100px 80px;
+  margin:  150px 550px 500px 650px;
  
 }
 .psulogo2{
@@ -145,15 +145,63 @@ margin: 50px 50px 75px 500px;
 
 .Drop1{
   background-color: #ffffff;
-  width: 400px;
+  width: 250px;
   border: 0px solid black;
   padding: 30px;
   margin:  20px 20px 20px 20px;
 }
 .Drop2{
   background-color: #ffffff;
-  width: 400px;
+  width: 250px;
   border: 0px solid black;
   padding: 30px;
   margin:  20px 20px 20px 20px;
+}
+
+.d1d1-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 400px;
+  padding-right: 200px;
+  padding-top: 50px;
+}
+.rowDrop{
+  background-color: #ffffff;
+  width: 1500px;
+  border: 0px solid black;
+  padding: 10px;
+  margin:  100px 50px 50px 200px;
+ 
+  
+}
+
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+
+.li {
+  float: left;
+}
+
+.lia {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.lia:hover {
+  background-color: rgb(253, 253, 253);
 }
