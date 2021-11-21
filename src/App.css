@@ -87,18 +87,15 @@
 }
 
 
-
-
-
-
-
 .buttonD1{
   border: 0px;
   width: 100px;
   height: 100px;
-  background: rgb(177, 214, 245);
+  background-image: linear-gradient(to top, #fff1eb 10%, #ace0f9 100%);
   border: 2px;
   border-radius: 15px
+ 
+ 
 }
 .dura{
 margin: 0px 550px 150px 600px;
@@ -126,6 +123,9 @@ margin: 0px 550px 150px 600px;
     height: 50;
     justify-content: center;
     align-items: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 20px;
+    text-align: center;
 }
 
 
@@ -149,6 +149,7 @@ margin: 0px 550px 150px 600px;
   border: 0px solid black;
   padding: 30px;
   margin:  20px 20px 20px 20px;
+ 
 }
 .Drop2{
   background-color: #ffffff;
@@ -204,4 +205,18 @@ margin: 0px 550px 150px 600px;
 /* Change the link color to #111 (black) on hover */
 .lia:hover {
   background-color: rgb(253, 253, 253);
+}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 20px;
+  text-align: center;
+  margin:  100px 50px 50px 70px;
+}
+.bglog{
+  background-color: #4F80C0;
+}
+.detail{
+  padding: 40px 20px;
+  text-align: center;
 }
