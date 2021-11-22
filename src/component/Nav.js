@@ -2,12 +2,12 @@ import React, { useContext } from "react"
 import "./Nav.css"
 import { NavLink } from "react-router-dom"
 import { auth } from "../config/firebase"
-
+import { useHistory } from "react-router-dom"
 import { contextSession } from "../App"
 
 export default function Nav() {
-  const { setSession } = useContext(contextSession)
-
+  const { setSession, SetDetail  } = useContext(contextSession)
+  const history = useHistory()
   const handleLogOut = (e) => {
     e.preventDefault()
     auth.signOut().then(() => {
@@ -15,9 +15,20 @@ export default function Nav() {
         isLoggedIn: false,
         currentUser: null,
       })
+      SetDetail({
+        range: 0,
+        email: null,
+        id: null,
+        timerange: null,
+        time: null,
+        type: null,
+        studentID: null,
+      })
+
     })
     sessionStorage.removeItem("session")
     localStorage.clear()
+    history.push("/login")
   }
 
   return (
@@ -27,11 +38,11 @@ export default function Nav() {
       </div>
 
       <nav>
-        <div >
+        <div>
           <ul className="ul-nav">
             <li className="li-nav">
               <NavLink
-                to="/Home"
+                to={"/Home"}
                 activeStyle={{
                   fontWeight: "bold",
                   color: "blue",
@@ -78,7 +89,7 @@ export default function Nav() {
 
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <button className="btLogout" onClick={handleLogOut}>
+          <button className="btLogout"   onClick={handleLogOut}>
             Logout
           </button>
         </div>

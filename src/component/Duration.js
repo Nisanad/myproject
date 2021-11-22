@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
+import { contextSession } from '../App';
 
 
 
 function Duration1({ setState }) {
+    const { check } = useContext(contextSession)
 
-    let history = useHistory()
-
+   
     const range = [
         {
             _range: 1,
@@ -27,17 +28,18 @@ function Duration1({ setState }) {
         },
 
     ]
-    // console.log(detail);
+    console.log(check)
+
 
 
     return (
 
         <div  >
-            {localStorage.getItem("studentID") ? null : history.push("Home")}
+            
 
-            <h2 className="h2header" >กรุณาเลือกช่วงเวลา</h2>
+            <h2 className="p3" >กรุณาเลือกช่วงเวลา</h2>
             <br></br><br></br>
-            <div className="dura">
+            <div className="dura" style={{textAlign:"center"}}>
                 <div style={{ display: "inline-flex" }}  >
                     {
                         range.map((val, i) => (
@@ -46,7 +48,7 @@ function Duration1({ setState }) {
                                     type="button"
                                     class="btn btn-outline-info"
                                     style={{
-                                        margin: "10px"
+                                        margin: "20px"
                                     }}
                                     onClick={() => {
                                         setState({

@@ -4,9 +4,9 @@ import Login from "./pages/Login"
 
 import "./App.css"
 import Queue from "./pages/Queue"
-import { Route, Redirect, Switch } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import Home from "./pages/Home"
-import { auth } from "./config/firebase"
+import { auth,db } from "./config/firebase"
 import Detail from "./pages/Detail"
 import News from "./pages/News"
 import Nav from './component/Nav';
@@ -19,22 +19,22 @@ function App() {
     isLoggedIn: false,
     cerrentUser: null,
     errorMessage: null,
+    check: false,
   })
-  //  aunnisanad16@gmail.com
-  //  0950123409aunp
+
+  const [check, setCheck] = useState(false)
+  const [rawData, setRawData] = useState(null)
+
 
   const [detail, SetDetail] = useState({
     range: 0,
+    email: null,
+    id: null,
     timerange: null,
     time: null,
     type: null,
     studentID: null,
   })
-
-
-
-
-
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -45,43 +45,60 @@ function App() {
           cerrentUser: user,
           errorMessage: null,
         })
-        sessionStorage.setItem("session", true)
-
-        const _range = localStorage.getItem("range")
-        const _timerange = localStorage.getItem("timerange")
-        const _time = localStorage.getItem("time")
-        const _type = localStorage.getItem("type")
-        const _studentID = localStorage.getItem("studentID")
-
-        SetDetail({
-          range: _range ,
-          timerange: _timerange,
-          time: _time,
-          type: _type,
-          studentID: _studentID,
-        })
-
-
+        sessionStorage.setItem("session",true)
+        db.database()
+          .ref(`Data`)
+          .on("value", (snap) => {
+            let emailList = []
+            let data = snap.val()
+            for (let id in data) {
+              emailList.push({ id, ...data[id] })
+            }
+            // console.log(emailList);
+            setRawData(emailList)
+            const findUser = emailList.filter((val) => {
+              return val.email === user.email
+            })
+  
+            const check = Object.keys(findUser).length !== 0 // เช็คว่าเคยลงทะเบียนหรือยัง?
+            setCheck(check)
+            if (check) {
+              SetDetail({
+                id: findUser[0].id,
+                range: findUser[0].range,
+                timerange: findUser[0].timerange,
+                time: findUser[0].time,
+                type: findUser[0].type,
+                studentID: findUser[0].studentID,
+                email: findUser[0].email,
+              })
+            }
+          })
       }
     })
   }, [])
 
   return (
-    <contextSession.Provider value={{ setSession, session, SetDetail, detail }}>
+    <contextSession.Provider
+      value={{ setSession, session, SetDetail, detail, check ,rawData }}
+    >
       {/* เช็ค Login */}
       {session.isLoggedIn ? (
         <>
+          {check ? <Redirect to="/Detail" /> : <Redirect to="/"/>}
           <Nav />
-          <Route exact path="/Home" component={Home} />
+          <Route exact path={["/Home", "/"]} component={Home} />
           <Route path="/Queue" component={Queue} />
           <Route path="/Detail" component={Detail} />
           <Route path="/News" component={News} />
         </>
       ) : (
         <>
-          <Route exact path="/login" component={Login} />
+          <Redirect to="/login" />
           {!sessionStorage.getItem("session") ? (
-            <Redirect to="/login" />
+            <>
+              <Route path="/login" component={Login} />
+            </>
           ) : (
             // โหลดตอน refresh หน้าเว็บ
             <h1 style={{ color: "blueviolet", textAlign: "center" }}>

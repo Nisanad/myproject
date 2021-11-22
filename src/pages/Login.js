@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react"
+import React, { useContext, useRef } from "react"
 //import auth from 'firebase';
 import "../App.css"
 import { auth } from "../config/firebase"
@@ -32,8 +32,10 @@ const Login = () => {
           isLoggedIn: true,
           currentUser: user,
         })
+        window.location.reload()
         history.push("/Home") // เมื่อ login สำเร็จ redirectไปหน้า home
-      } catch (error) {
+      } 
+      catch (error) {
         setSession({
           isLoggedIn: false,
           currentUser: null,
@@ -54,9 +56,9 @@ const Login = () => {
   // } //password
 
   return (
-    <div >
+   <div>
       <div>
-        <img src="estudent.jpg"  alt="logo" width="200px"></img>{" "}
+        <img src="estudent.jpg" alt="logo" width="200px"></img>{" "}
       </div>
       <center>
         <div>
