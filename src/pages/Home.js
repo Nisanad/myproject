@@ -7,18 +7,23 @@ import { Redirect } from "react-router-dom"
 
 export default function Home() {
 
-  const { SetDetail, check  } = useContext(contextSession)
+  const { check  } = useContext(contextSession)
  
   return (
-    <div >
-    {check ? 
+   <div>
+      {check ? (
+        <Redirect to="/Detail" />
+      ) : (
         <>
-          <Redirect to="/Detail" /> 
-          <h3>...loading</h3>
+          {!sessionStorage.getItem("check") ? (
+            <Student />
+          ) : (
+            <div align="center">
+              <h>....loading</h>
+            </div>
+          )}
         </>
-        :
-      <Student SetDetail={SetDetail} />
-}
+      )}
     </div>
   )
 }

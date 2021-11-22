@@ -1,16 +1,15 @@
 import React, { useContext, useRef } from "react"
-//import auth from 'firebase';
+
 import "../App.css"
 import { auth } from "../config/firebase"
 import { contextSession } from "../App"
 import { useHistory } from "react-router-dom"
 
 const Login = () => {
-  const history = useHistory()
+  
   const { setSession } = useContext(contextSession)
-  // const [Username, setUsername] = useState("") //studentID
-  // const [password, setPassword] = useState("") //password
-  const userRef = useRef() // ใช้ useRef แทน useState ***ศึกษาเรื่อง useRef
+ 
+  const userRef = useRef() 
   const pwRef = useRef()
 
   const handleLogin = async () => {
@@ -18,24 +17,12 @@ const Login = () => {
     const password = pwRef.current.value
 
     if (Username && password) {
-      // เช็คว่าได้กรอก email กับ password ?
+      // เช็คกรอก email กับ password ?
       try {
-        // console.log("login", Username, password)
-        const response = await auth.signInWithEmailAndPassword(
-          Username,
-          password
-        )
-
-        const { user } = response
-
-        setSession({
-          isLoggedIn: true,
-          currentUser: user,
-        })
-        window.location.reload()
-        history.push("/Home") // เมื่อ login สำเร็จ redirectไปหน้า home
-      } 
-      catch (error) {
+        
+        await auth.signInWithEmailAndPassword(Username, password)
+        // history.push("/Home") // เมื่อ login สำเร็จ redirectไปหน้า home
+      } catch (error) {
         setSession({
           isLoggedIn: false,
           currentUser: null,
@@ -47,13 +34,6 @@ const Login = () => {
       alert("Please put your Email and/or Password")
     }
   }
-
-  // const handleUsername = (Event) => {
-  //   setUsername(Event.target.value)
-  // } //studentID
-  // const handlePassword = (Event) => {
-  //   setPassword(Event.target.value)
-  // } //password
 
   return (
    <div>

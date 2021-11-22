@@ -1,34 +1,34 @@
-import React, { useState,useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+
 import '../App.css';
 import { contextSession } from '../App';
 
 
 
-function Duration1({ setState }) {
-    const { check } = useContext(contextSession)
+function Duration1( ) {
+      const { setRange , setTimeRange } = useContext(contextSession)
 
    
     const range = [
-        {
-            _range: 1,
+       {
+            _range: "1",
             _time: "09.00-10:30"
         },
         {
-            _range: 2,
+            _range: "2",
             _time: "10:30-12:00"
         },
         {
-            _range: 3,
+            _range: "3",
             _time: "13:00-14:30"
         },
         {
-            _range: 4,
+            _range: "4",
             _time: "14:30-16:00"
         },
 
     ]
-    console.log(check)
+  
 
 
 
@@ -51,11 +51,8 @@ function Duration1({ setState }) {
                                         margin: "20px"
                                     }}
                                     onClick={() => {
-                                        setState({
-                                            time: val._time,
-                                            range: val._range
-
-                                        })
+                                        setRange(val._range)
+                                        setTimeRange(val._time)
                                         localStorage.setItem("range", val._range)
                                         localStorage.setItem("timerange", val._time)
 

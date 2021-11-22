@@ -6,32 +6,27 @@ import { contextSession } from "../App"
 
 export default function Queue() {
 
-    const { check } = useContext(contextSession)
-    const [state, setState] = useState({
-        time: null,
-        range: 0
-    })
+    const { check ,getRange ,setRange } = useContext(contextSession)
 
 
     return (
         <div>
-            {!check && !localStorage.getItem("studentID") && <Redirect to="Home"/> }
-      {state.range > 0 ? (
-        <DropDura1 state={state} />
+           {!check && !localStorage.getItem("studentID") && <Redirect to="/Home"/> }
+      {getRange ? (
+        <DropDura1 />
       ) : (
-        <Duration1 setState={setState} />
+        <Duration1  />
       )}
 
-      {state.range > 0 ? (
+      {getRange  ? (
         <button
           class="btn btn-outline-secondary"
-          onClick={() => setState({ range: 0 })}
+          onClick={() => setRange(null)}
         >
           ย้อนกลับ
         </button>
       ) : null}
-            
-        </div>
+    </div>
     )
 
 }

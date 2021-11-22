@@ -9,10 +9,10 @@ export default function Detail() {
   const { detail, check } = useContext(contextSession)
 
 
-
+ console.log(detail)
   return (
     <>
-   {!check && history.push("Queue")}
+   {!check ? history.push("/Queue") : null }
       <div>
         <h1 className="p3"> รายละเอียดการจอง </h1>
         <div className="detail">
