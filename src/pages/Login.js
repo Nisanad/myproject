@@ -37,12 +37,16 @@ const Login = () => {
 
   return (
    <div>
-      <div>
-        <img src="estudent.jpg" alt="logo" width="200px"></img>{" "}
-      </div>
+      
       <center>
         <div>
           <h1 className="h1">
+        
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             &emsp;&emsp;ระบบจองคิวสำหรับกองทุนกู้ยืมกยศ./กรอ.
           </h1>
         </div>
@@ -79,7 +83,9 @@ const Login = () => {
           >
             Login
           </button>
+          
         </div>
+       
       </center>
     </div>
   )

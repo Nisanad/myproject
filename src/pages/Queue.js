@@ -19,8 +19,8 @@ export default function Queue() {
       )}
 
       {getRange  ? (
-        <button
-          class="btn btn-outline-secondary"
+        <button 
+          class="btn btn-dark" style={{margin:"30px"}}
           onClick={() => setRange(null)}
         >
           ย้อนกลับ

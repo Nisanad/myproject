@@ -3,7 +3,7 @@ import Select from "react-select";
 import '../App.css'
 
 import { db } from "../config/firebase"
-import { time1, time2, time3, time4 } from '../dataTime/index';
+import { time1, time2, time3, time4 ,time5} from '../dataTime/index';
 import { useHistory } from "react-router-dom"
 import { contextSession } from "../App"
 
@@ -29,7 +29,7 @@ function DropDura1({ state }) {
       return time3
     } else if (getRange === "4") {
       return time4
-    }
+    } 
   }
 
   const type = [
@@ -43,7 +43,9 @@ function DropDura1({ state }) {
   const handleChange1 = (obj) => {
     setTime(obj)
   }
-
+  const handleChange2 = (obj) => {
+    setTime(obj)
+  }
 
   const handleOnChange = (obj) => {
      setType(obj)
@@ -94,22 +96,24 @@ function DropDura1({ state }) {
     setTime(null)
   }
   return (
-    <div>
-      <div className="p3">{`ช่วงที่ ${getRange} เวลา ${getTimeRange} น.`}</div>
-
-      <div className="rowDrop">
+   
+<center>
+   <div>
+      <div className="p3">{`ช่วงที่ ${getRange} เวลา ${getTimeRange} น.`}</div> 
+      <div >
         <div class="row">
           <div class="col-sm-3">
-            <div className="App" className="Drop1">
+            <div className="drop" >
               กรุณาเลือกเวลา<br></br>
               {/* {`${detail.timerange} น.`} */}
-              <Select
+              <Select 
                  value={getTime}
                 options={seletTime()}
                 onChange={handleChange1}
                 isOptionDisabled={(options) => options.isDisabled}
                 getOptionLabel={(options) => options.time}
                 required
+                
               />
               
             </div>
@@ -117,19 +121,23 @@ function DropDura1({ state }) {
 
 
           <div class="col-sm-3">
-            <div className="App" className="Drop1">
+            <div className="drop" >
               กรุณาเลือกเวลา<br></br>
               {/* {`${detail.timerange} น.`} */}
               <Select
                value={getTime}
-                
+               options={seletTime()}
+              
+               isOptionDisabled={(options) => options.isDisabled}
+               getOptionLabel={(options) => options.time}
+               required
               />
               
             </div>
           </div>
 
    <div class="col-sm-3">
-            <div className="App" className="Drop1">
+            <div className="drop" >
               กรุณาเลือกเวลา<br></br>
               {/* {`${detail.timerange} น.`} */}
               <Select
@@ -144,7 +152,7 @@ function DropDura1({ state }) {
 
 
           <div class="col-sm-3">
-            <div className="App" className="Drop2">
+            <div className="drop" >
               <br></br>
               กรุณาเลือกประเภท
               <Select
@@ -157,17 +165,19 @@ function DropDura1({ state }) {
              
             </div>
           </div>
-          <div class="col-sm-3" className="btcr">
-            <button class="btn btn-success"  style={{margin: "20px"}} onClick={handleSubmit}>
+          <div className="btcr">
+            <button class="btn btn-success" style={{padding: "8px"}} onClick={handleSubmit}>
               ยืนยัน
             </button>
-            <button type="reset" class="btn btn-danger" onClick={handleClear}>
+            <button type="reset" class="btn btn-danger"style={{margin: "100px"}} onClick={handleClear}>
               ล้าง
             </button>
           </div>
         </div>
       </div>
     </div>
+</center>
+     
   )
 }
 export default DropDura1

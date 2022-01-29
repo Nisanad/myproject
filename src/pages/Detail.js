@@ -13,17 +13,32 @@ export default function Detail() {
   return (
     <>
    {!check ? history.push("/Queue") : null }
-      <div>
+   <body >
+       <div >  
+         <center>
         <h1 className="p3"> รายละเอียดการจอง </h1>
-        <div className="detail">
-          <h2>{`Email: ${detail.email}`}</h2>
+       
+          
+           <div className="detailbox"  >
+         <div classname="middlede">
+           <br></br> <br></br> <br></br><br></br><br></br>
+            <h2>{`Email: ${detail.email}`}</h2>
           <h2>{`รหัสนักศึกษา ${detail.studentID}`}</h2>
           <h2>{`ช่วงที่ ${detail.range}`}</h2>
           <h3>{`ช่วงเวลา ${detail.timerange}`}</h3>
           <p>{`เวลาที่เลือก ${detail.time}`}</p>
           <p>{`ประเภท ${detail.type}`}</p>
+          <br></br>
+         </div>
+         
         </div>
+        
+        </center>
+        
+       
       </div>
+   </body>
+    
     </>
   )
 }

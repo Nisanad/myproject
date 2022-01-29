@@ -39,16 +39,24 @@ function Student({ SetDetail }) {
   }
 
   return (
-    <div>
+    <div >
       <div>
         <center>
-          <div className="Boxtodo" style={{margin:"60px"}}>
-            <h1 className="p3">Student ID</h1>
+          <div className="Boxtodo" style={{margin:"200px",padding:"20px"}}>
+          
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <br></br>
             <br></br>
             <input type="text" onChange={handleOnChange} value={id} />
             <br></br>
             <br></br>
+            <br></br>
+            
+            
 
             <button type="button" class="btn btn-dark" onClick={handleID}>
               Add

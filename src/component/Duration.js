@@ -37,7 +37,7 @@ function Duration1( ) {
         <div  >
             
 
-            <h2 className="p3" >กรุณาเลือกช่วงเวลา</h2>
+            <h2 className="p3"  >กรุณาเลือกช่วงเวลา</h2>
             <br></br><br></br>
             <div className="dura" style={{textAlign:"center"}}>
                 <div style={{ display: "inline-flex" }}  >
@@ -48,7 +48,7 @@ function Duration1( ) {
                                     type="button"
                                     class="btn btn-outline-info"
                                     style={{
-                                        margin: "20px"
+                                        margin: "20px" 
                                     }}
                                     onClick={() => {
                                         setRange(val._range)
