@@ -31,7 +31,8 @@ export default function Detail() {
           <p>{`เวลาที่เลือก ${detail.time}`}</p>
           <p>{`ประเภท ${detail.type}`}</p>
          
-
+         <br></br><br></br>
+          <button type="button" class="btn btn-danger">แก้ไข</button>
          </div>
 
         </div>
