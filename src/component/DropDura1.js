@@ -3,7 +3,7 @@ import Select from "react-select";
 import '../App.css'
 
 import { db } from "../config/firebase"
-import { time1, time2, time3, time4 ,time5} from '../dataTime/index';
+import { time1, time2, time3, time4 } from '../dataTime/index';
 import { useHistory } from "react-router-dom"
 import { contextSession } from "../App"
 
@@ -30,6 +30,7 @@ function DropDura1({ state }) {
     } else if (getRange === "4") {
       return time4
     } 
+
   }
 
   const type = [

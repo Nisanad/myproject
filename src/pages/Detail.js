@@ -2,11 +2,13 @@ import React, { useContext } from 'react'
 import "../App.css"
 import { contextSession } from "../App"
 import { useHistory } from "react-router-dom"
+import { db } from "../config/firebase"
 
 export default function Detail() {
   const history = useHistory()
 
-  const { detail, check } = useContext(contextSession)
+  const { detail,check,} = useContext(contextSession)
+  
 
 
  console.log(detail)
@@ -16,7 +18,7 @@ export default function Detail() {
    <body >
        <div >  
          <center>
-        <h1 className="p3"> รายละเอียดการจอง </h1>
+        <h1 className="p3"> <br></br>รายละเอียดการจอง </h1>
        
           
            <div className="detailbox"  >
@@ -28,9 +30,10 @@ export default function Detail() {
           <h3>{`ช่วงเวลา ${detail.timerange}`}</h3>
           <p>{`เวลาที่เลือก ${detail.time}`}</p>
           <p>{`ประเภท ${detail.type}`}</p>
-          <br></br>
-         </div>
          
+
+         </div>
+
         </div>
         
         </center>
