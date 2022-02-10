@@ -61,12 +61,15 @@ function DropDura1({ state }) {
     if (getType && getTime) {
       if (check) {
         const pushData = {
+          studentID: id,
           range: getRange,
           timerange: getTimeRange,
           time: getTime.time,
           type: getType.type,
+          email: session.cerrentUser.email,
         }
-        db.database().ref("Data").child(detail.id).update(pushData)
+        db.database().ref("Data").child(detail.id).remove()
+        db.database().ref(`Data`).push(pushData)
       } else {
         const pushData = {
           range: getRange,
@@ -119,36 +122,6 @@ function DropDura1({ state }) {
               
             </div>
           </div>
-
-
-          <div class="col-sm-3">
-            <div className="drop" >
-              กรุณาเลือกเวลา<br></br>
-              {/* {`${detail.timerange} น.`} */}
-              <Select
-               value={getTime}
-               options={seletTime()}
-              
-               isOptionDisabled={(options) => options.isDisabled}
-               getOptionLabel={(options) => options.time}
-               required
-              />
-              
-            </div>
-          </div>
-
-   <div class="col-sm-3">
-            <div className="drop" >
-              กรุณาเลือกเวลา<br></br>
-              {/* {`${detail.timerange} น.`} */}
-              <Select
-                value={getTime}
-              
-              />
-              
-            </div>
-          </div>
-
 
 
 

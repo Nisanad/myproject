@@ -32,7 +32,7 @@ export default function Detail() {
           <p>{`ประเภท ${detail.type}`}</p>
          
          <br></br><br></br>
-          <button type="button" class="btn btn-danger">แก้ไข</button>
+          <button type="button" onClick={()=> history.push("/Queue")}  class="btn btn-danger">ลบข้อมูล</button>
          </div>
 
         </div>
