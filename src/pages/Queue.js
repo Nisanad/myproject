@@ -3,6 +3,8 @@ import DropDura1 from '../component/DropDura1';
 import Duration1 from '../component/Duration';
 import { Redirect } from "react-router-dom"
 import { contextSession } from "../App"
+import Table1 from '../time/table1';
+import SelectTime from '../component/selecttime';
 
 export default function Queue() {
 
@@ -13,7 +15,7 @@ export default function Queue() {
         <div>
            {!check && !localStorage.getItem("studentID") && <Redirect to="/Home"/> }
       {getRange ? (
-        <DropDura1 />
+        <DropDura1/>
       ) : (
         <Duration1  />
       )}

@@ -44,9 +44,7 @@ function DropDura1({ state }) {
   const handleChange1 = (obj) => {
     setTime(obj)
   }
-  const handleChange2 = (obj) => {
-    setTime(obj)
-  }
+ 
 
   const handleOnChange = (obj) => {
      setType(obj)

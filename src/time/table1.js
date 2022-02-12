@@ -1,7 +1,43 @@
 import './time.css';
+import React, { useState , useContext} from 'react';
+import { contextSession } from "../App"
+import { useHistory } from "react-router-dom"
+import Select from "react-select";
+function Table1(state) {
+  const { detail,
+    session,
+    check,
+    setCheck,
+    getRange,
+    getTimeRange,
+    setTime,
+    setType,
+    getTime,
+    getType, } = useContext(contextSession)
+  const history = useHistory()
 
-function Table2() {
+
+const handleClear = (e) => {
+    e.preventDefault()
+    console.log("test")
+    setType(null)
+    setTime(null)
+  }
+  
+  const type = [
+    {
+      type: "กยศ.",
+    },
+    {
+      type: "กรอ.",
+    },
+  ]
+  const handleOnChange = (obj) => {
+    setType(obj)
+ }
   return (
+    <div class="row">
+    <div class="col-sm-2">
     <div class="container mt-5">
     <table class=" table-hover">
     <tr>
@@ -179,8 +215,32 @@ function Table2() {
 
 
   </table>
+  <div class="col-sm-3">
+            <div className="drop" >
+              <br></br>
+              กรุณาเลือกประเภท
+              <Select
+               value={getType}
+                options={type}
+                onChange={handleOnChange}
+                required
+                getOptionLabel={(options) => options.type}
+              />
+             
+            </div>
+          </div>
+          <div className="btcr">
+            <button class="btn btn-success" style={{padding: "8px"}} >
+              ยืนยัน
+            </button>
+            <button type="reset" class="btn btn-danger"style={{margin: "100px"}} onClick={handleClear}>
+              ล้าง
+            </button>
+          </div>
+  </div>
+  </div>
   </div>
   );
 }
 
-export default Table2;
+export default Table1;
