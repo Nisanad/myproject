@@ -7,7 +7,7 @@ import { contextSession } from '../App';
 
 function Duration1( ) {
       const { setRange , setTimeRange } = useContext(contextSession)
-
+    
    
     const range = [
        {
