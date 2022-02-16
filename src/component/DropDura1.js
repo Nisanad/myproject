@@ -19,6 +19,7 @@ function DropDura1({ state }) {
     setType,
     getTime,
     getType,
+    selectedDate,
   } = useContext(contextSession)
   const history = useHistory()
 
@@ -58,6 +59,7 @@ function DropDura1({ state }) {
         const pushData = {
           studentID: detail.studentID,
           range: getRange,
+          date:selectedDate, 
           timerange: getTimeRange,
           time: getTime,
           type: getType.type,
@@ -69,6 +71,7 @@ function DropDura1({ state }) {
         const pushData = {
           range: getRange,
           timerange: getTimeRange,
+          date: selectedDate,
           time: getTime,
           type: getType.type,
           studentID: id,
@@ -100,87 +103,76 @@ function DropDura1({ state }) {
   }
 
   return (
-    
-      <div >
-        <center>
-           <div className="p3">{`ช่วงที่ ${getRange} เวลา ${getTimeRange} น.`}</div>
-         
-        </center>
-    
-           <center><h3>กรุณาเลือกเวลาและประเภทของทุนกู้ยืม </h3>  </center>   
-               <div 
-              style={{
-                justifyContent: "center",
-                display: "grid",
-                gridTemplateColumns: "repeat(7,5rem)",
-                gridGap: 5,
-                padding: "20px",
-                width: "650px",
-                backgroundColor: "white",
-                borderRadius: "20px",
-                margin:"50px"
-              }}
-            >
-              {seletTime().map((val) => {
-                return (
-                 
-                  <div key={val.key}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setTime(val.time)
-                      }}
-                      className={toggleActive(val.time)}
-                    >
-                      {val.time}
-                    </button>
-                
-                  </div>
-                )
-              })}
-             </div>
-              
-           
-                <div className="type">
-              <Select
-                style={{ width: "10px" }}
-                value={getType}
-                options={type}
-                onChange={handleOnChange}
-                required
-                getOptionLabel={(options) => options.type}
-              />
-            </div> 
-             
-            
-          
-      
-     
+    <div>
+      <center>
+        <div className="p3">{`ช่วงที่ ${getRange} เวลา ${getTimeRange} น.`}</div>
+      </center>
+
+      <center>
+        <h3>กรุณาเลือกเวลาและประเภทของทุนกู้ยืม </h3>{" "}
+      </center>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "grid",
+          gridTemplateColumns: "repeat(7,5rem)",
+          gridGap: 5,
+          padding: "20px",
+          width: "650px",
+          backgroundColor: "white",
+          borderRadius: "20px",
+          margin: "50px",
+        }}
+      >
+        {seletTime().map((val) => {
+          return (
+            <div key={val.key}>
+              <button
+                type="button"
+                onClick={() => {
+                  setTime(val.time)
+                }}
+                className={toggleActive(val.time)}
+              >
+                {val.time}
+              </button>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="type">
+        <Select
+          style={{ width: "10px" }}
+          value={getType}
+          options={type}
+          onChange={handleOnChange}
+          required
+          getOptionLabel={(options) => options.type}
+        />
+      </div>
 
       <div className="btcr">
-        <button 
+        <button
           class="btn btn-success"
-          style={{ 
-                  borderRadius:"15px"
-        }}
+          style={{
+            borderRadius: "15px",
+          }}
           onClick={handleSubmit}
         >
           ยืนยัน
         </button>
-        
+
         <button
           type="reset"
           class="btn btn-danger"
-          style={{ margin: "90px",
-                  borderRadius:"15px"
-        }}
+          style={{ margin: "90px", borderRadius: "15px" }}
           onClick={handleClear}
         >
           ล้าง
-        </button>  
-        </div>
+        </button>
       </div>
-   
+    </div>
   )
 }
 export default DropDura1
