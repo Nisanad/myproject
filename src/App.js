@@ -10,6 +10,8 @@ import { auth,db } from "./config/firebase"
 import Detail from "./pages/Detail"
 import News from "./pages/News"
 import Nav from './component/Nav';
+import { getDataTime } from "./dataTime/getDataTime"
+
 
 const contextSession = createContext() 
 
@@ -21,7 +23,7 @@ function App() {
   const [getType, setType] = useState(null)
   const [selectedDate, setSelectedDate] = useState(null)
 
-
+  getDataTime()
   const [session, setSession] = useState({
     isLoggedIn: false,
     cerrentUser: null,
