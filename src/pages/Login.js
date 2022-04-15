@@ -6,8 +6,10 @@ import { auth } from "../config/firebase"
 import { contextSession } from "../App"
 import { useHistory } from "react-router-dom"
 import { Button } from 'antd'
+import Register from './Register'
+import { Redirect } from "react-router-dom"
 const Login = () => {
-  
+  const history = useHistory()
   const { setSession } = useContext(contextSession)
  
   const userRef = useRef() 
@@ -55,7 +57,7 @@ const Login = () => {
       </center>
       <center>
         <div className="Box">
-          <header class="pleaseinputtext">
+          <header class="pleaseinputtext" style={{borderRadius: "30px"}}>
             Please input your email and your Password /กรุณากรอก email
             และรหัสผ่าน
           </header>
@@ -66,6 +68,7 @@ const Login = () => {
             class="holder"
             // onChange={handleUsername}
             ref={userRef}
+            style={{borderRadius: "10px",border: "0px"}}
           />
           <p></p>
           <input
@@ -73,21 +76,31 @@ const Login = () => {
             placeholder="Password"
             class="holder"
             ref={pwRef}
+            style={{borderRadius: "10px",border: "0px"}}
             // onChange={handlePassword}
           />
           <br></br>
           <br></br>
           <button
             type="button"
-            class="button:hover"
+            class="btn btn-outline-dark"
             //class="button"
             onClick={handleLogin}
           >
             Login
           </button>
-          
-          
-        </div>
+          <br></br> <br></br>
+          <button
+            type="button"
+            class="btn btn-outline-dark" 
+            onClick={()=> history.push("/Register")}
+            //class="button" 
+            >      Register 
+          </button>  
+            </div>
+      
+      
+       
        
       </center>
     </div>

@@ -11,6 +11,7 @@ import Detail from "./pages/Detail"
 import News from "./pages/News"
 import Nav from './component/Nav';
 import { checkTime } from "./dataTime/checkTime"
+import Register from "./pages/Register"
 
 
 const contextSession = createContext() 
@@ -124,6 +125,7 @@ function App() {
           <Route path="/Queue" component={Queue} />
           <Route path="/Detail" component={Detail} />
           <Route path="/News" component={News} />
+          
         </>
       ) : (
         <>
@@ -131,6 +133,8 @@ function App() {
             <>
               <Redirect to="/login" />
               <Route path="/login" component={Login} />
+              {/* <Redirect to ="/Register"/> */}
+              <Route path="/Register" component={Register} /> 
             </>
           ) : (
             // โหลดตอน refresh หน้าเว็บ
