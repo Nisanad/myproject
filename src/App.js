@@ -4,20 +4,18 @@ import Login from "./pages/Login"
 
 import "./App.css"
 import Queue from "./pages/Queue"
-import { Route, Redirect } from "react-router-dom"
+import { Route, Redirect, useLocation } from "react-router-dom"
 import Home from "./pages/Home"
-import { auth,db } from "./config/firebase"
+import { auth, db } from "./config/firebase"
 import Detail from "./pages/Detail"
 import News from "./pages/News"
-import Nav from './component/Nav';
-import { checkTime } from "./dataTime/checkTime"
+import Nav from "./component/Nav"
 import Register from "./pages/Register"
-
-
-const contextSession = createContext() 
+const contextSession = createContext()
 
 function App() {
-   const [getStudentId, setStudentId] = useState(null)
+  const location = useLocation()
+  const [getStudentId, setStudentId] = useState(null)
   const [getRange, setRange] = useState(null)
   const [getTimeRange, setTimeRange] = useState(null)
   const [getTime, setTime] = useState(null)
@@ -43,7 +41,7 @@ function App() {
     type: null,
     studentID: null,
   })
-// console.log(detail);
+  // console.log(detail);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       // เช็คสถานะ login
@@ -53,6 +51,7 @@ function App() {
           cerrentUser: user,
           errorMessage: null,
         })
+        // console.log(user)
         sessionStorage.setItem("session", true)
         db.database()
           .ref(`Data`)
@@ -118,23 +117,20 @@ function App() {
       {/* เช็ค Login */}
       {session.isLoggedIn ? (
         <>
-          {!sessionStorage.getItem("check") && <Redirect to="/Home" />
-          }
+          {!sessionStorage.getItem("check") && <Redirect to="/Home" />}
           <Nav />
           <Route exact path="/Home" component={Home} />
           <Route path="/Queue" component={Queue} />
           <Route path="/Detail" component={Detail} />
           <Route path="/News" component={News} />
-          
         </>
       ) : (
         <>
           {!sessionStorage.getItem("session") ? (
             <>
-              <Redirect to="/login" />
+              {location.pathname === "/register" ? null: <Redirect to="/login" /> }
               <Route path="/login" component={Login} />
-              {/* <Redirect to ="/Register"/> */}
-              <Route path="/Register" component={Register} /> 
+              <Route path="/" component={Register} />
             </>
           ) : (
             // โหลดตอน refresh หน้าเว็บ

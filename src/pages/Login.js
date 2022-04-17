@@ -4,14 +4,12 @@ import "../App.css"
 import Fire_store from "../config/Fire_store"
 import { auth } from "../config/firebase"
 import { contextSession } from "../App"
-import { useHistory } from "react-router-dom"
+import { useHistory  } from "react-router-dom"
 import { Button } from 'antd'
-import Register from './Register'
-import { Redirect } from "react-router-dom"
 const Login = () => {
-  const history = useHistory()
+  
   const { setSession } = useContext(contextSession)
- 
+ const history = useHistory()
   const userRef = useRef() 
   const pwRef = useRef()
 
@@ -57,14 +55,14 @@ const Login = () => {
       </center>
       <center>
         <div className="Box">
-          <header class="pleaseinputtext" style={{borderRadius: "30px"}}>
+          <header class="pleaseinputtext">
             Please input your email and your Password /กรุณากรอก email
             และรหัสผ่าน
           </header>
           <br></br>
           <input
-            type="Email"
-            placeholder="Your E-mail"
+            type="email"
+            placeholder="64xxxxxxx@phuket.psu.ac.th"
             class="holder"
             // onChange={handleUsername}
             ref={userRef}
@@ -76,32 +74,27 @@ const Login = () => {
             placeholder="Password"
             class="holder"
             ref={pwRef}
-            style={{borderRadius: "10px",border: "0px"}}
             // onChange={handlePassword}
+            style={{borderRadius: "10px",border: "0px"}}
           />
           <br></br>
           <br></br>
           <button
-            type="button"
-            class="btn btn-outline-dark"
+           type="button"
+           class="btn btn-outline-dark"
             //class="button"
             onClick={handleLogin}
           >
             Login
+          </button >
+
+          <br></br><br></br>
+          <button  type="button"
+            class="btn btn-outline-dark" >
+            <a href="/register" >Register</a>
           </button>
-          <br></br> <br></br>
-          <button
-            type="button"
-            class="btn btn-outline-dark" 
-            onClick={()=> history.push("/Register")}
-            //class="button" 
-            >      Register 
-          </button>  
-            </div>
-      
-      
-       
-       
+          
+        </div>       
       </center>
     </div>
   )
