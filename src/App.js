@@ -44,7 +44,7 @@ function App() {
   // console.log(detail);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      // เช็คสถานะ login
+      
       if (user) {
         setSession({
           isLoggedIn: true,
@@ -66,7 +66,7 @@ function App() {
             const findUser = emailList.filter((val) => {
               return val.email === user.email
             })
-            const check = Object.keys(findUser).length !== 0 // เช็คว่าเคยลงทะเบียนหรือยัง?
+            const check = Object.keys(findUser).length !== 0 
             if (check) {
               setCheck(check)
               sessionStorage.setItem("check", true)
@@ -114,7 +114,7 @@ function App() {
         setSelectedDate,
       }}
     >
-      {/* เช็ค Login */}
+    
       {session.isLoggedIn ? (
         <>
           {!sessionStorage.getItem("check") && <Redirect to="/Home" />}
@@ -133,7 +133,7 @@ function App() {
               <Route path="/" component={Register} />
             </>
           ) : (
-            // โหลดตอน refresh หน้าเว็บ
+            
             <h1 style={{ color: "blueviolet", textAlign: "center" }}>
               ...loading
             </h1>

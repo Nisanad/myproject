@@ -18,11 +18,11 @@ const Login = () => {
     const password = pwRef.current.value
 
     if (Username && password) {
-      // เช็คกรอก email กับ password ?
+      
       try {
         
         await auth.signInWithEmailAndPassword(Username, password)
-        // history.push("/Home") // เมื่อ login สำเร็จ redirectไปหน้า home
+        
       } catch (error) {
         setSession({
           isLoggedIn: false,
