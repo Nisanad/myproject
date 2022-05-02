@@ -311,3 +311,19 @@ h3{
 .login{
   color: #625EB1;
 }
+
+
+.calendaradmin{
+  position:fixed;
+ top: 15%;
+ right: 50%;  
+}
+.bcadmin{
+ position:fixed;
+ top: 60%;
+ right: 50%;
+}
+.h2ad{
+ 
+ text-align: center;
+}

@@ -11,6 +11,7 @@ import Detail from "./pages/Detail"
 import News from "./pages/News"
 import Nav from "./component/Nav"
 import Register from "./pages/Register"
+import Admin from "./pages/Admin"
 const contextSession = createContext()
 
 function App() {
@@ -130,7 +131,7 @@ function App() {
             <>
               {location.pathname === "/register" ? null: <Redirect to="/login" /> }
               <Route path="/login" component={Login} />
-              <Route path="/" component={Register} />
+              <Route path="/register" component={Register} />
             </>
           ) : (
             

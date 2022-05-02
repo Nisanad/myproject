@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react"
 import { Calendar } from "antd"
 import { Redirect } from "react-router-dom"
 import moment from "moment"
-
+import 'antd/dist/antd.css';
 import DropDura1 from "../component/DropDura1"
 import Duration1 from "../component/Duration"
 import { contextSession } from "../App"
@@ -33,7 +33,7 @@ export default function Queue() {
           <Calendar
             onSelect={onSelectDate}
             value={value}
-            validRange={[moment("2022-04-02"), moment("2022-04-04")]}
+            validRange={[moment("2022-05-01"), moment("2022-05-04")]}
           />
           
         </div>
